@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Candy Pop Themes - HTML Showcase -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A sweet candy shop showcase" />
+    <meta name="theme-color" content="#ff69b4" />
+    <title>Candy Pop Shop &amp; Co.</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+    <style>
+        .inline-badge { background: #ff69b4; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; }
+    </style>
+</head>
+<body id="candy-shop">
+    <header class="shop-header" data-section="top">
+        <h1>Candy Pop Shop &hearts;</h1>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="#sweets">Sweets</a></li>
+                <li><a href="#specials">Specials</a></li>
+                <li><a href="#order">Order</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="shop-content">
+        <section id="sweets" data-category="candy">
+            <h2>Our Sweets</h2>
+            <article class="candy-card" data-flavor="strawberry" onclick="console.log('Yum!')">
+                <img src="lollipop.png" alt="Strawberry lollipop" width="120" height="120" />
+                <h3>Strawberry Lollipop <span class="inline-badge">New!</span></h3>
+                <p>A swirly, twirly treat &mdash; pure joy on a stick.<br />Available in 3 sizes.</p>
+                <p class="price">$2.50</p>
+            </article>
+            <article class="candy-card" data-flavor="blueberry">
+                <img src="gummy.png" alt="Blueberry gummy bears" width="120" height="120" />
+                <h3>Blueberry Gummy Bears</h3>
+                <p>Soft &amp; chewy, bursting with flavor.</p>
+                <p class="price">$3.75</p>
+            </article>
+        </section>
+
+        <hr />
+
+        <section id="specials">
+            <h2>Today&rsquo;s Specials</h2>
+            <p>Buy 2, get 1 free on all taffy! &star;</p>
+        </section>
+
+        <section id="order" data-form="contact">
+            <h2>Place an Order</h2>
+            <form action="/order" method="post" onsubmit="return false">
+                <label for="name-input">Your Name:</label>
+                <input type="text" id="name-input" name="customer" placeholder="Sweet Tooth" required />
+
+                <label for="candy-select">Pick a Candy:</label>
+                <select id="candy-select" name="candy">
+                    <option value="lollipop">Lollipop</option>
+                    <option value="gummy">Gummy Bears</option>
+                    <option value="taffy">Saltwater Taffy</option>
+                </select>
+
+                <button type="submit" class="order-btn">Order Now &raquo;</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="shop-footer">
+        <p>&copy; 2026 Candy Pop Shop &amp; Co. &hearts; All rights reserved.</p>
+    </footer>
+</body>
+</html>

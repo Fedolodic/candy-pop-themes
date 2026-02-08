@@ -1,0 +1,110 @@
+{
+  "name": "candy-pop-themes",
+  "displayName": "Candy Pop Themes",
+  "description": "Vibrant pink, purple & cyan color themes with optional neon glow effects, sparkle particles, animated gradients, and glassmorphism. Includes dark (Candy Pop) and light (Light Candy Pop) variants.",
+  "version": "1.2.0",
+  "publisher": "StateOfTheArt",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "homepage": "https://github.com/Fedolodic/candy-pop-themes#readme",
+  "bugs": {
+    "url": "https://github.com/Fedolodic/candy-pop-themes/issues"
+  },
+  "qna": "marketplace",
+  "badges": [
+    {
+      "url": "https://img.shields.io/visual-studio-marketplace/v/StateOfTheArt.candy-pop-themes",
+      "href": "https://marketplace.visualstudio.com/items?itemName=StateOfTheArt.candy-pop-themes",
+      "description": "Visual Studio Marketplace Version"
+    },
+    {
+      "url": "https://img.shields.io/visual-studio-marketplace/i/StateOfTheArt.candy-pop-themes",
+      "href": "https://marketplace.visualstudio.com/items?itemName=StateOfTheArt.candy-pop-themes",
+      "description": "Visual Studio Marketplace Installs"
+    },
+    {
+      "url": "https://img.shields.io/visual-studio-marketplace/r/StateOfTheArt.candy-pop-themes",
+      "href": "https://marketplace.visualstudio.com/items?itemName=StateOfTheArt.candy-pop-themes",
+      "description": "Visual Studio Marketplace Rating"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fedolodic/candy-pop-themes"
+  },
+  "galleryBanner": {
+    "color": "#2e1a47",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "candy pop",
+    "neon",
+    "glow",
+    "pink",
+    "purple",
+    "cyan",
+    "dark theme",
+    "light theme",
+    "anime",
+    "synthwave",
+    "sparkle",
+    "pastel"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "themes": [
+      {
+        "label": "Candy Pop",
+        "uiTheme": "vs-dark",
+        "path": "./themes/candy-pop-color-theme.json"
+      },
+      {
+        "label": "Candy Pop Clean",
+        "uiTheme": "vs-dark",
+        "path": "./themes/candy-pop-clean-color-theme.json"
+      },
+      {
+        "label": "Light Candy Pop",
+        "uiTheme": "vs",
+        "path": "./themes/light-candy-pop-color-theme.json"
+      },
+      {
+        "label": "Light Candy Pop Clean",
+        "uiTheme": "vs",
+        "path": "./themes/light-candy-pop-clean-color-theme.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "candyPop.enableEffects",
+        "title": "Candy Pop: Enable Glow & Effects"
+      },
+      {
+        "command": "candyPop.disableEffects",
+        "title": "Candy Pop: Disable Glow & Effects"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+    "watch": "npm run build -- --watch",
+    "package": "npm run build && vsce package",
+    "install-local": "npm run package && cursor --install-extension candy-pop-themes-1.1.0.vsix"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@vscode/vsce": "^2.22.0",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.3.0"
+  }
+}

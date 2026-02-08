@@ -1,0 +1,46 @@
+{
+  "app_name": "Candy Pop Shop",
+  "version": "2.4.1",
+  "debug": false,
+  "port": 8080,
+  "max_connections": null,
+  "store": {
+    "displayName": "Sugar Rush Emporium",
+    "location": {
+      "address": "742 Gumball Lane",
+      "city": "Sweetville",
+      "state": "CA",
+      "zip_code": "90210",
+      "coordinates": { "latitude": 34.0522, "longitude": -118.2437 }
+    },
+    "open_hours": { "weekday": "9:00 AM - 9:00 PM", "weekend": "10:00 AM - 11:00 PM" },
+    "isOpen": true
+  },
+  "inventory": [
+    {
+      "id": 1,
+      "name": "Rainbow Lollipop",
+      "priceUsd": 2.99,
+      "tags": ["lollipop", "rainbow", "kids-favorite"],
+      "in_stock": true,
+      "sugar_grams": 28.5
+    },
+    {
+      "id": 2,
+      "name": "Sour Gummy Bears",
+      "priceUsd": 4.50,
+      "tags": ["gummy", "sour"],
+      "in_stock": false,
+      "sugar_grams": null
+    }
+  ],
+  "features": {
+    "enableLoyaltyProgram": true,
+    "enableOnlineOrders": true,
+    "enableGiftWrapping": false,
+    "max_items_per_order": 50,
+    "discount_tiers": [0.05, 0.10, 0.15, 0.20],
+    "supported_payments": ["credit_card", "cash", "gift_card"],
+    "metadata": [1, "beta", true, null, 3.14]
+  }
+}

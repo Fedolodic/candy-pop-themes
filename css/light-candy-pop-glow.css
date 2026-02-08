@@ -1,0 +1,354 @@
+/* ================================================
+   LIGHT CANDY POP - Soft Glow Effects (Light Theme)
+   Pure CSS — GPU-accelerated, no JS required
+   ================================================ */
+
+/* --- Editor Cursor Glow & Breathing Pulse --- */
+@keyframes candy-cursor-breathe-light {
+  0%, 100% { box-shadow: 0 0 4px 1px #db2777, 0 0 10px 3px #db277755, 0 0 18px 5px #db277722; }
+  50% { box-shadow: 0 0 8px 2px #db2777, 0 0 16px 6px #db277766, 0 0 28px 8px #db277733; }
+}
+
+.monaco-editor .cursors-layer .cursor {
+  background-color: #db2777 !important;
+  box-shadow: 0 0 4px 1px #db2777, 0 0 10px 3px #db277755;
+  animation: candy-cursor-breathe-light 2s ease-in-out infinite !important;
+}
+
+/* --- Terminal Cursor Glow & Breathing Pulse --- */
+.xterm .xterm-cursor-block {
+  background-color: #db2777 !important;
+  box-shadow: 0 0 4px 1px #db2777, 0 0 10px 3px #db277755;
+  animation: candy-cursor-breathe-light 2s ease-in-out infinite !important;
+}
+
+.xterm .xterm-cursor-bar {
+  background-color: #db2777 !important;
+  box-shadow: 0 0 3px 1px #db2777, 0 0 8px 2px #db277755;
+  animation: candy-cursor-breathe-light 2s ease-in-out infinite !important;
+}
+
+.xterm .xterm-cursor-underline {
+  background-color: #db2777 !important;
+  box-shadow: 0 0 3px 1px #db2777, 0 0 6px 2px #db277755;
+  animation: candy-cursor-breathe-light 2s ease-in-out infinite !important;
+}
+
+.xterm .xterm-cursor-outline {
+  border-color: #db2777 !important;
+  box-shadow: 0 0 4px 1px #db277766 !important;
+}
+
+/* --- Selection Glow --- */
+.monaco-editor .selected-text {
+  box-shadow: 0 0 10px #db277733, 0 0 20px #db277711 !important;
+  border-radius: 2px;
+}
+
+/* --- Syntax Token Glow Effects (softer for light) --- */
+.mtk5, .mtk6,
+.monaco-editor .token.keyword,
+.monaco-editor .token.storage {
+  text-shadow: 0 0 6px #db277755, 0 0 12px #db277722 !important;
+}
+
+.mtk8,
+.monaco-editor .token.function,
+.monaco-editor .token.support.function {
+  text-shadow: 0 0 6px #0891b255, 0 0 12px #0891b222 !important;
+}
+
+.mtk4,
+.monaco-editor .token.string {
+  text-shadow: 0 0 4px #05966944, 0 0 8px #05966922 !important;
+}
+
+.mtk9,
+.monaco-editor .token.constant {
+  text-shadow: 0 0 6px #d9770644, 0 0 12px #d9770622 !important;
+}
+
+.mtk10,
+.monaco-editor .token.type,
+.monaco-editor .token.class {
+  text-shadow: 0 0 4px #be185d44, 0 0 8px #be185d22 !important;
+}
+
+.monaco-editor .token.decorator,
+.monaco-editor .token.annotation {
+  text-shadow: 0 0 6px #7c3aed44, 0 0 12px #7c3aed22 !important;
+}
+
+.monaco-editor .token.tag {
+  text-shadow: 0 0 4px #db277744, 0 0 8px #db277722 !important;
+}
+
+.monaco-editor .token.regexp {
+  text-shadow: 0 0 4px #ea580c44, 0 0 8px #ea580c22 !important;
+}
+
+/* --- Bracket Pair Glow --- */
+.monaco-editor .bracket-highlighting-0 {
+  text-shadow: 0 0 4px #db277766, 0 0 8px #db277733 !important;
+}
+.monaco-editor .bracket-highlighting-1 {
+  text-shadow: 0 0 4px #0891b266, 0 0 8px #0891b233 !important;
+}
+.monaco-editor .bracket-highlighting-2 {
+  text-shadow: 0 0 4px #05966966, 0 0 8px #05966933 !important;
+}
+.monaco-editor .bracket-highlighting-3 {
+  text-shadow: 0 0 4px #d9770666, 0 0 8px #d9770633 !important;
+}
+
+/* --- Active Tab Glow --- */
+.tab.active {
+  box-shadow: 0 -2px 6px #db277733, 0 -1px 3px #db277744 !important;
+}
+
+.tab:hover {
+  box-shadow: 0 0 4px #db277722 !important;
+}
+
+/* --- Status Bar Soft Gradient --- */
+@keyframes candy-gradient-shift-light {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.monaco-workbench .part.statusbar {
+  background-image: linear-gradient(270deg, #fdf2f8, #f9a8d4, #fdf2f8, #fbcfe8) !important;
+  background-size: 400% 400% !important;
+  animation: candy-gradient-shift-light 10s ease infinite !important;
+  border-top: 1px solid #db277722 !important;
+}
+
+/* --- CSS-Only Floating Sparkle Field (subtle on light bg) --- */
+/* Dots on html pseudo-elements — body/monaco-workbench have stacking-context issues */
+@keyframes candy-sparkle-drift-light-1 {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(15px, -20px); }
+  50% { transform: translate(-10px, 15px); }
+  75% { transform: translate(20px, 10px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes candy-sparkle-drift-light-2 {
+  0% { transform: translate(0, 0); }
+  33% { transform: translate(-20px, 12px); }
+  66% { transform: translate(12px, -18px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes candy-sparkle-twinkle-light {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.55; }
+}
+
+/* Layer 1: pink sparkle dots — tiled 2x2 (30 unique × 4 tiles = ~120 dots) */
+html::before {
+  content: '' !important;
+  display: block !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 99999 !important;
+  will-change: transform, opacity !important;
+  background-image:
+    radial-gradient(4.5px 4.5px at 5% 8%, #db2777aa 0%, transparent 100%),
+    radial-gradient(4px 4px at 14% 22%, #be185d99 0%, transparent 100%),
+    radial-gradient(5px 5px at 8% 42%, #db277799 0%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 3% 65%, #f472b6aa 0%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 12% 85%, #db277788 0%, transparent 100%),
+    radial-gradient(4px 4px at 22% 12%, #be185d99 0%, transparent 100%),
+    radial-gradient(5px 5px at 28% 35%, #db2777aa 0%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 25% 58%, #f472b699 0%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 18% 78%, #db277799 0%, transparent 100%),
+    radial-gradient(4px 4px at 35% 5%, #be185d88 0%, transparent 100%),
+    radial-gradient(5px 5px at 40% 28%, #db2777aa 0%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 38% 52%, #f472b6aa 0%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 42% 75%, #db277799 0%, transparent 100%),
+    radial-gradient(4px 4px at 33% 92%, #be185d99 0%, transparent 100%),
+    radial-gradient(5px 5px at 52% 15%, #db277799 0%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 58% 38%, #f472b699 0%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 55% 62%, #db2777aa 0%, transparent 100%),
+    radial-gradient(4px 4px at 48% 88%, #be185d88 0%, transparent 100%),
+    radial-gradient(5px 5px at 65% 8%, #db277799 0%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 62% 32%, #f472b6aa 0%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 68% 55%, #db277788 0%, transparent 100%),
+    radial-gradient(4px 4px at 72% 78%, #be185d99 0%, transparent 100%),
+    radial-gradient(5px 5px at 78% 18%, #db2777aa 0%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 82% 42%, #f472b699 0%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 75% 68%, #db277799 0%, transparent 100%),
+    radial-gradient(4px 4px at 85% 90%, #be185d88 0%, transparent 100%),
+    radial-gradient(5px 5px at 88% 25%, #db277799 0%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 92% 48%, #f472b6aa 0%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 95% 72%, #db277788 0%, transparent 100%),
+    radial-gradient(4px 4px at 98% 95%, #be185d99 0%, transparent 100%) !important;
+  background-size: 50% 50% !important;
+  background-repeat: repeat !important;
+  animation:
+    candy-sparkle-drift-light-1 20s ease-in-out infinite,
+    candy-sparkle-twinkle-light 4s ease-in-out infinite !important;
+}
+
+/* Layer 2: teal/violet sparkle dots — tiled 3x3 (30 unique × 9 tiles = ~270 dots) */
+html::after {
+  content: '' !important;
+  display: block !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 99999 !important;
+  will-change: transform, opacity !important;
+  background-image:
+    radial-gradient(4px 4px at 4% 10%, #0891b299 0%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 10% 30%, #7c3aed88 0%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 7% 55%, #059669aa 0%, transparent 100%),
+    radial-gradient(4px 4px at 3% 80%, #0891b288 0%, transparent 100%),
+    radial-gradient(5px 5px at 15% 15%, #7c3aed99 0%, transparent 100%),
+    radial-gradient(4px 4px at 20% 42%, #059669aa 0%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 18% 68%, #0891b299 0%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 25% 90%, #7c3aed88 0%, transparent 100%),
+    radial-gradient(4px 4px at 30% 8%, #059669aa 0%, transparent 100%),
+    radial-gradient(5px 5px at 35% 35%, #0891b288 0%, transparent 100%),
+    radial-gradient(4px 4px at 32% 60%, #7c3aed99 0%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 38% 82%, #059669aa 0%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 42% 18%, #0891b299 0%, transparent 100%),
+    radial-gradient(4px 4px at 48% 45%, #7c3aed88 0%, transparent 100%),
+    radial-gradient(5px 5px at 45% 72%, #059669aa 0%, transparent 100%),
+    radial-gradient(4px 4px at 52% 5%, #0891b288 0%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 58% 28%, #7c3aed99 0%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 55% 55%, #059669aa 0%, transparent 100%),
+    radial-gradient(4px 4px at 60% 78%, #0891b299 0%, transparent 100%),
+    radial-gradient(5px 5px at 65% 12%, #7c3aed88 0%, transparent 100%),
+    radial-gradient(4px 4px at 68% 40%, #059669aa 0%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 72% 65%, #0891b288 0%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 75% 88%, #7c3aed99 0%, transparent 100%),
+    radial-gradient(4px 4px at 80% 22%, #059669aa 0%, transparent 100%),
+    radial-gradient(5px 5px at 85% 48%, #0891b299 0%, transparent 100%),
+    radial-gradient(4px 4px at 82% 72%, #7c3aed88 0%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 88% 95%, #059669aa 0%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 92% 32%, #0891b288 0%, transparent 100%),
+    radial-gradient(4px 4px at 95% 58%, #7c3aed99 0%, transparent 100%),
+    radial-gradient(5px 5px at 98% 85%, #059669aa 0%, transparent 100%) !important;
+  background-size: 33.33% 33.33% !important;
+  background-repeat: repeat !important;
+  animation:
+    candy-sparkle-drift-light-2 25s ease-in-out infinite,
+    candy-sparkle-twinkle-light 5s ease-in-out infinite 1s !important;
+}
+
+/* --- Glassmorphism on Panels --- */
+/* background-color overrides force semi-transparency so backdrop-filter can blur through */
+.monaco-workbench .part.sidebar {
+  background-color: #fce7f3e6 !important;
+  backdrop-filter: blur(6px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(6px) saturate(120%) !important;
+}
+
+.monaco-workbench .part.panel {
+  background-color: #fdf2f8e6 !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+.monaco-editor .suggest-widget {
+  background-color: #fdf2f880 !important;
+  backdrop-filter: blur(12px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(150%) !important;
+  border: 1px solid #db277744 !important;
+  box-shadow: 0 8px 32px #db277722, 0 0 12px #db277722 !important;
+}
+
+/* Inner elements of suggest widget must also be transparent */
+.monaco-editor .suggest-widget .monaco-list,
+.monaco-editor .suggest-widget .monaco-list .monaco-list-rows,
+.monaco-editor .suggest-widget .suggest-details,
+.monaco-editor .suggest-widget .tree {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.quick-input-widget {
+  background-color: #fdf2f880 !important;
+  backdrop-filter: blur(16px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
+  box-shadow: 0 8px 32px #db277722, 0 0 16px #db277722 !important;
+  border: 1px solid #db277744 !important;
+}
+
+/* Inner elements of command palette must also be transparent for glassmorphism */
+.quick-input-widget .quick-input-header,
+.quick-input-widget .quick-input-header .quick-input-and-message,
+.quick-input-widget .quick-input-header .quick-input-and-message .quick-input-filter .monaco-inputbox,
+.quick-input-widget .quick-input-list .monaco-list,
+.quick-input-widget .quick-input-list .monaco-list .monaco-list-rows,
+.quick-input-widget .quick-input-list,
+.quick-input-widget .quick-input-action {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* --- Notification Toast Glow --- */
+.monaco-workbench .notifications-toasts .notification-toast {
+  box-shadow: 0 4px 16px #db277711, 0 0 8px #db277711 !important;
+  border: 1px solid #db277722 !important;
+}
+
+/* --- Scrollbar Glow --- */
+.monaco-scrollable-element > .scrollbar > .slider {
+  box-shadow: 0 0 3px #db277733 !important;
+  border-radius: 4px !important;
+}
+
+.monaco-scrollable-element > .scrollbar > .slider:hover {
+  box-shadow: 0 0 6px #db277744 !important;
+}
+
+/* --- Minimap Glow --- */
+.minimap-decorations-layer {
+  filter: drop-shadow(0 0 2px #db277733) !important;
+}
+
+/* --- Editor Group Border Glow --- */
+.monaco-editor .editor-group-border {
+  box-shadow: 0 0 3px #db277722 !important;
+}
+
+/* --- Focus Ring Glow --- */
+.monaco-workbench *:focus-visible {
+  outline-color: #db2777 !important;
+  box-shadow: 0 0 0 2px #db277733, 0 0 6px #db277722 !important;
+}
+
+/* --- Activity Bar Icon Glow --- */
+.monaco-workbench .activitybar .action-item.checked .action-label {
+  filter: drop-shadow(0 0 3px #db277766) !important;
+}
+
+.monaco-workbench .activitybar .action-item:hover .action-label {
+  filter: drop-shadow(0 0 4px #db277744) !important;
+}
+
+/* --- Badge Glow --- */
+.monaco-workbench .part .badge {
+  box-shadow: 0 0 4px #db277744, 0 0 8px #db277722 !important;
+}
+
+/* --- Button Glow --- */
+.monaco-button {
+  box-shadow: 0 0 6px #db277733, 0 0 12px #db277711 !important;
+  transition: box-shadow 0.3s ease !important;
+}
+
+.monaco-button:hover {
+  box-shadow: 0 0 10px #db277744, 0 0 20px #db277722, 0 0 30px #db277711 !important;
+}
