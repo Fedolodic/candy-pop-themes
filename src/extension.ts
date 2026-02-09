@@ -240,11 +240,12 @@ function getWorkbenchHtmlPath(): string | null {
     path.join(appRoot, 'out', 'vs', 'workbench'),
   ];
 
-  // Filename candidates
+  // Filename candidates (includes Cursor via workbench-apc-extension.html)
   const fileCandidates = [
     'workbench.html',
     'workbench.esm.html',
     'workbench-dev.html',
+    'workbench-dev.esm.html',
     'workbench-apc-extension.html',
     'workbench.desktop.main.html',
   ];
