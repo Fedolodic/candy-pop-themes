@@ -231,14 +231,29 @@ function removeInjection(html: string, startMarker: string, endMarker: string): 
 function getWorkbenchHtmlPath(): string | null {
   const appRoot = vscode.env.appRoot;
 
-  const candidates = [
-    path.join(appRoot, 'out', 'vs', 'code', 'electron-sandbox', 'workbench', 'workbench.html'),
-    path.join(appRoot, 'out', 'vs', 'code', 'electron-sandbox', 'workbench', 'workbench.esm.html'),
-    path.join(appRoot, 'out', 'vs', 'workbench', 'workbench.desktop.main.html'),
+  // Directory candidates (newest first)
+  const dirCandidates = [
+    path.join(appRoot, 'out', 'vs', 'code', 'electron-browser', 'workbench'),
+    path.join(appRoot, 'out', 'vs', 'code', 'electron-browser'),
+    path.join(appRoot, 'out', 'vs', 'code', 'electron-sandbox', 'workbench'),
+    path.join(appRoot, 'out', 'vs', 'code', 'electron-sandbox'),
+    path.join(appRoot, 'out', 'vs', 'workbench'),
   ];
 
-  for (const p of candidates) {
-    if (fs.existsSync(p)) return p;
+  // Filename candidates
+  const fileCandidates = [
+    'workbench.html',
+    'workbench.esm.html',
+    'workbench-dev.html',
+    'workbench-apc-extension.html',
+    'workbench.desktop.main.html',
+  ];
+
+  for (const dir of dirCandidates) {
+    for (const file of fileCandidates) {
+      const p = path.join(dir, file);
+      if (fs.existsSync(p)) return p;
+    }
   }
 
   return null;
