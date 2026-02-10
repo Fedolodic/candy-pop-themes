@@ -6,3 +6,5 @@ tsconfig.json
 *.vsix
 package-lock.json
 showcase/**
+design-docs/**
+scripts/**

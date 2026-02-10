@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.4.0 - 2026-02-10
+
+### Added
+- Guided onboarding command: `Candy Pop: Start Delight Journey` (theme choice, profile choice, motion preference)
+- Guided feature-discovery command: `Candy Pop: Start Guided Tour` (theme picker, journey, profile, effects toggle, health check, settings, docs)
+- Effect profile selector command: `Candy Pop: Choose Effect Profile`
+- Health diagnostics command: `Candy Pop: Run Health Check` with output panel details
+- New settings:
+  - `candyPop.effectProfile` (`immersive`, `balanced`, `gentle`, `minimal`)
+  - `candyPop.autoEnableEffects`
+  - `candyPop.showWelcomeOnFirstUse`
+  - `candyPop.showGuidedTourOnUpdate`
+  - `candyPop.respectReducedMotion`
+- One-time first-run prompt for effect themes (dismissible)
+- Install/update guided-tour prompt to improve in-editor discoverability without requiring README reading
+
+### Changed
+- Effects injection now includes runtime CSS overrides for profile and reduced-motion behavior
+- Auto-reapply logic now reacts to profile and motion setting changes
+- Silent auto-apply no longer interrupts users with repeated reload prompts
+- Packaging pipeline now uses Node script entrypoints for build/package reliability across environments
+- README and design docs were updated to reflect the current onboarding and release workflow
+
 ## 1.1.0 — 2026-02-07
 
 ### Fixed

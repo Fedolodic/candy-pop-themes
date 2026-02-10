@@ -2,7 +2,7 @@
   "name": "candy-pop-themes",
   "displayName": "Candy Pop Themes",
   "description": "Vibrant pink, purple & cyan color themes with optional neon glow effects, sparkle particles, animated gradients, and glassmorphism. Includes dark (Candy Pop) and light (Light Candy Pop) variants.",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "publisher": "StateOfTheArt",
   "license": "MIT",
   "icon": "images/icon.png",
@@ -92,14 +92,72 @@
       {
         "command": "candyPop.disableEffects",
         "title": "Candy Pop: Disable Glow & Effects"
+      },
+      {
+        "command": "candyPop.startDelightJourney",
+        "title": "Candy Pop: Start Delight Journey"
+      },
+      {
+        "command": "candyPop.startGuidedTour",
+        "title": "Candy Pop: Start Guided Tour"
+      },
+      {
+        "command": "candyPop.chooseEffectProfile",
+        "title": "Candy Pop: Choose Effect Profile"
+      },
+      {
+        "command": "candyPop.runHealthCheck",
+        "title": "Candy Pop: Run Health Check"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Candy Pop Themes",
+      "properties": {
+        "candyPop.effectProfile": {
+          "type": "string",
+          "default": "immersive",
+          "enum": [
+            "immersive",
+            "balanced",
+            "gentle",
+            "minimal"
+          ],
+          "enumDescriptions": [
+            "Maximum glow and animation intensity.",
+            "Daily-use profile with moderated intensity.",
+            "Softer profile with sparkles disabled and reduced glow.",
+            "Near-clean profile with minimal visual effects."
+          ],
+          "markdownDescription": "Controls the intensity profile for Candy Pop effects when using `Candy Pop` or `Light Candy Pop`."
+        },
+        "candyPop.autoEnableEffects": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Automatically apply Candy Pop effects when an effects-enabled Candy Pop theme is active."
+        },
+        "candyPop.showWelcomeOnFirstUse": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show a one-time first-run setup prompt for the Candy Pop delight journey."
+        },
+        "candyPop.showGuidedTourOnUpdate": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show a guided tour prompt after Candy Pop extension updates."
+        },
+        "candyPop.respectReducedMotion": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "When enabled, Candy Pop turns off key animations if `workbench.reduceMotion` is enabled."
+        }
+      }
+    }
   },
   "scripts": {
-    "build": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+    "build": "node scripts/build.cjs",
     "watch": "npm run build -- --watch",
-    "package": "npm run build && vsce package",
-    "install-local": "npm run package && cursor --install-extension candy-pop-themes-1.1.0.vsix"
+    "package": "node scripts/package.cjs",
+    "install-local": "npm run package && cursor --install-extension candy-pop-themes-${npm_package_version}.vsix"
   },
   "devDependencies": {
     "@types/vscode": "^1.80.0",
