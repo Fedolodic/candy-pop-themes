@@ -1,9 +1,17 @@
 # Candy Pop Themes
 
-Vibrant pink, purple & cyan color themes for VS Code and Cursor with optional neon glow effects, floating sparkle particles, animated gradients, and glassmorphism.
+Vibrant pink, purple, and cyan themes for VS Code and Cursor, now with a guided delight journey, effect intensity profiles, and reduced-motion-aware behavior.
 
 ![Candy Pop Dark](./screenshots/dark.png)
 ![Candy Pop Light](./screenshots/light.png)
+
+## Why This Theme Feels Different
+
+Candy Pop focuses on emotional flow across the full customer journey:
+- Discover: bold visual identity out of the box.
+- Personalize: pick your intensity profile in seconds.
+- Settle in: calm motion when needed.
+- Trust: run a health check when something feels off.
 
 ## Themes
 
@@ -13,6 +21,63 @@ Vibrant pink, purple & cyan color themes for VS Code and Cursor with optional ne
 | **Light Candy Pop** | Light | Glow, sparkles, glassmorphism, animated status bar |
 | **Candy Pop Clean** | Dark | Colors only, no effects |
 | **Light Candy Pop Clean** | Light | Colors only, no effects |
+
+## 60-Second Quick Start
+
+1. Install the extension (a guided-tour prompt appears on first install by default).
+2. Open Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
+3. Run `Candy Pop: Start Guided Tour` (or `Candy Pop: Start Delight Journey` for direct setup).
+4. Choose your theme and effect profile.
+5. Reload when prompted.
+
+## Commands
+
+| Command | Purpose |
+|---------|---------|
+| `Candy Pop: Start Guided Tour` | Interactive tour of themes, commands, settings, and docs |
+| `Candy Pop: Start Delight Journey` | Guided setup (theme + profile + motion comfort) |
+| `Candy Pop: Choose Effect Profile` | Switch intensity profile anytime |
+| `Candy Pop: Enable Glow & Effects` | Manually apply effects |
+| `Candy Pop: Disable Glow & Effects` | Remove injected effects |
+| `Candy Pop: Run Health Check` | View diagnostics in output panel |
+
+## Effect Profiles
+
+| Profile | Experience |
+|---------|------------|
+| `immersive` | Full sparkle and glow energy |
+| `balanced` | Moderated effect intensity for daily use |
+| `gentle` | Sparkles off and softer emphasis |
+| `minimal` | Near-clean feel with minimal extras |
+
+## Settings
+
+Use Settings UI or `settings.json`:
+
+```json
+{
+  "candyPop.effectProfile": "immersive",
+  "candyPop.autoEnableEffects": true,
+  "candyPop.showWelcomeOnFirstUse": true,
+  "candyPop.showGuidedTourOnUpdate": true,
+  "candyPop.respectReducedMotion": true
+}
+```
+
+Setting details:
+- `candyPop.effectProfile`: chooses effect intensity.
+- `candyPop.autoEnableEffects`: auto-apply effects for Candy Pop effect themes.
+- `candyPop.showWelcomeOnFirstUse`: show one-time setup prompt.
+- `candyPop.showGuidedTourOnUpdate`: show a guided tour prompt after extension updates.
+- `candyPop.respectReducedMotion`: calm key animations when `workbench.reduceMotion` is enabled.
+
+## Onboarding and Guided Tour
+
+- First install: Candy Pop prompts you to start a guided tour by default.
+- After updates: Candy Pop prompts you to review features again by default.
+- Theme switch fallback: if you jump straight to an effects theme, you still get a setup prompt.
+- You can always restart onboarding manually with `Candy Pop: Start Guided Tour`.
+- You can disable onboarding prompts with `candyPop.showWelcomeOnFirstUse` and `candyPop.showGuidedTourOnUpdate`.
 
 ## Features
 
@@ -51,27 +116,50 @@ Vibrant pink, purple & cyan color themes for VS Code and Cursor with optional ne
 1. Open **Extensions** sidebar (`Ctrl+Shift+X` / `Cmd+Shift+X` on macOS)
 2. Search for **Candy Pop Themes**
 3. Click **Install**
-4. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P` on macOS) and select **Preferences: Color Theme**
+4. Open Command Palette and run `Preferences: Color Theme`
 5. Choose **Candy Pop**, **Light Candy Pop**, **Candy Pop Clean**, or **Light Candy Pop Clean**
+
+### Build and Package From Source
+```bash
+npm ci
+npm run package
+```
+
+This generates a versioned VSIX in the project root:
+- `candy-pop-themes-<version>.vsix`
 
 ### From VSIX
 ```bash
-code --install-extension candy-pop-themes-x.x.x.vsix
+code --install-extension "$(ls -1t candy-pop-themes-*.vsix | head -n1)"
 # or for Cursor:
-cursor --install-extension candy-pop-themes-x.x.x.vsix
+cursor --install-extension "$(ls -1t candy-pop-themes-*.vsix | head -n1)"
 ```
 
-## Enabling/Disabling Effects
+## Enabling and Disabling Effects
 
-Effects (glow, sparkles, glassmorphism, animated gradient) are **automatically enabled** when you select the **Candy Pop** or **Light Candy Pop** themes, and **automatically removed** when you switch to any other theme.
+Effects are automatically enabled for `Candy Pop` and `Light Candy Pop` when `candyPop.autoEnableEffects` is true.
 
-You can also manually control them:
-- `Ctrl+Shift+P` (`Cmd+Shift+P` on macOS) > **Candy Pop: Enable Glow & Effects**
-- `Ctrl+Shift+P` (`Cmd+Shift+P` on macOS) > **Candy Pop: Disable Glow & Effects**
+Manual controls:
+- `Candy Pop: Enable Glow & Effects`
+- `Candy Pop: Disable Glow & Effects`
 
-> **Note**: Effects require modifying the workbench HTML file. You may need to run your editor as Administrator on Windows. After enabling/disabling, a reload is required.
+Notes:
+- Effects modify the workbench HTML file.
+- On Windows, Administrator permissions may be required.
+- Reload is required after enabling/disabling effects.
+- Clean variants do not use injection.
 
-> **Note**: The "Clean" variants (**Candy Pop Clean** and **Light Candy Pop Clean**) provide the same color palette without any effects injection.
+## Health Check and Troubleshooting
+
+Run `Candy Pop: Run Health Check` to print diagnostics in the **Candy Pop** output panel:
+- Active theme
+- Effect profile
+- Reduced-motion behavior
+- Workbench HTML target path
+
+Known issues:
+- After editor updates, injection can be overwritten. Re-run enable effects or switch themes.
+- The "Corrupted Installation" warning is expected after injection and can be dismissed.
 
 ## Screenshots
 
@@ -81,41 +169,22 @@ You can also manually control them:
 ![Light Candy Pop Theme](./screenshots/light.png)
 *Light Candy Pop - Full effects*
 
-## Color Palette
-
-### Dark Theme (Candy Pop)
-| Element | Color |
-|---------|-------|
-| Primary Pink | `#ec4899` |
-| Cyan | `#22d3ee` |
-| Green | `#34d399` |
-| Yellow | `#facc15` |
-| Violet | `#a78bfa` |
-| Rose | `#f472b6` |
-
-### Light Theme (Light Candy Pop)
-| Element | Color |
-|---------|-------|
-| Primary Pink | `#db2777` |
-| Teal | `#0891b2` |
-| Emerald | `#059669` |
-| Amber | `#d97706` |
-| Violet | `#7c3aed` |
-| Rose | `#be185d` |
-
 ## Requirements
 
 - VS Code 1.80+ or Cursor
-- Administrator access (for effects injection on Windows)
-
-## Known Issues
-
-- After editor updates, the effects injection may be overwritten. Simply reload or switch themes to re-apply.
-- The "Corrupted Installation" warning is expected after effects are injected. This is safe and can be dismissed.
+- Administrator access on Windows for effects injection
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or PR.
+Contributions are welcome. Open an issue or PR.
+
+Development commands:
+```bash
+npm ci
+npm run build
+npm run watch
+npm run package
+```
 
 ## License
 
